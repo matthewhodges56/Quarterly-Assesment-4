@@ -3,40 +3,40 @@ This Python script automates the process of fetching, summarizing, and sending d
 
 ## Features 🚀
 - Fetch Top News:
- - Utilizes the **NewsAPI** to retrieve the top headlines for the US.
+  - Utilizes the **NewsAPI** to retrieve the top headlines for the US.
 
 - AI-Powered Summaries:
- - Employs **Google Gemini API (Generative AI)** to summarize each article into concise, reader-friendly snippets.
+  - Employs **Google Gemini API (Generative AI)** to summarize each article into concise, reader-friendly snippets.
 
 - Automated Email Delivery:
- - Sends an email with the top 4 summarized news articles using the **Mailgun SMTP** service.
+  - Sends an email with the top 4 summarized news articles using the **Mailgun SMTP** service.
 
 - HTML Formatting:
- - Emails are formatted in a sleek, clean HTML design with clickable links to the original articles.
+  - Emails are formatted in a sleek, clean HTML design with clickable links to the original articles.
 
 - Task Scheduler Compatibility:
- - Designed to run automatically at specified times using **Windows Task Scheduler**.
+  - Designed to run automatically at specified times using **Windows Task Scheduler**.
 
 ## Script Workflow 🔄
 1. Environment Setup:
 - Loads sensitive keys and configuration values using `.env` variables:
- - `NEWS_API_KEY`: API key for NewsAPI.
- - `GEMINI_API_KEY`: API key for Google Gemini API.
- - `MAILGUN_EMAIL`: Email address for Mailgun SMTP.
- - `MAILGUN_PASSWORD`: Password for Mailgun SMTP.
- - `EMAIL_RECIPIENTS`: Comma-separated list of recipient email addresses.
+  - `NEWS_API_KEY`: API key for NewsAPI.
+  - `GEMINI_API_KEY`: API key for Google Gemini API.
+  - `MAILGUN_EMAIL`: Email address for Mailgun SMTP.
+  - `MAILGUN_PASSWORD`: Password for Mailgun SMTP.
+  - `EMAIL_RECIPIENTS`: Comma-separated list of recipient email addresses.
 
 2. Fetching News:
 - Queries **NewsAPI** for the top 4 headlines, including:
- - Title, author, description, URL, and publication date. 
+  - Title, author, description, URL, and publication date. 
 
 3. Summarizing Articles:
- - Sends each article's content to the **Google Gemini API** for summarization.
+  - Sends each article's content to the **Google Gemini API** for summarization.
 
 4. Composing Email:
 - Constructs an HTML email with:
- - Summarized articles formatted as a bulleted list.
- - Links to the full articles.
+  - Summarized articles formatted as a bulleted list.
+  - Links to the full articles.
 
 5. Sending Email:
 - Logs in to **Mailgun's SMTP server** and sends the email to all recipients.
