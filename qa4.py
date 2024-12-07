@@ -1,4 +1,4 @@
-# Imprts
+# Imports
 import os
 from dotenv import load_dotenv
 import smtplib
@@ -32,29 +32,29 @@ data = response.json()  # Parse JSON response
 articles = data.get("articles", [])
 
 # Summarize articles
-summarized_articles = []
+summarizedArticles = []
 for article in articles[:4]:  # Limit to top 4 articles
     title = article.get("title")
     description = article.get("description")
     author = article.get("author")
     url = article.get("url")
     published_at = article.get("publishedAt")
-    
+
     # Create a template for summarization
-    article_summary_input = f"""
+    articleSummaryInput = f"""
     Title: {title}
     Author: {author}
     Description: {description}
     URL: {url}
     Published At: {published_at}
     
-    Please summarize the above article in a concise and clear manner.
+    Please summarize the above article in a concise and clear manner. 
     """
     
     # Generate summary using Gemini
-    genai_response = model.generate_content(article_summary_input)
-    summary = genai_response.text
-    summarized_articles.append(f"""
+    response = model.generate_content(articleSummaryInput)
+    summary = response.text
+    summarizedArticles.append(f"""
     <li>
         <strong>{title}</strong><br>
         <em>{summary}</em><br>
@@ -69,7 +69,7 @@ html_body = f"""
 <body>
     <h2>Daily News Summaries</h2>
     <ul>
-        {''.join(summarized_articles)}
+        {''.join(summarizedArticles)}
     </ul>
 </body>
 </html>
